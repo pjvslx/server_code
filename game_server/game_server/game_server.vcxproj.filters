@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="mdk">
+      <UniqueIdentifier>{4a48b839-e700-4925-8db9-2970db5c82e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="frame">
+      <UniqueIdentifier>{a8c900ee-dc6d-4902-8279-9b39d6d56355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="frame\netserver">
+      <UniqueIdentifier>{ffe023c9-ec8c-4839-b947-3d1af71f823f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{9e5e7b6a-0c6d-4d3e-936d-681978a09d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\game_server">
+      <UniqueIdentifier>{95d48d06-2689-40bb-be4b-d0797c268be6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\framework\include\mdk\atom.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\ConfigFile.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Executor.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\FinishedTime.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\FixLengthInt.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\IOBuffer.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\IOBufferBlock.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Lock.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Logger.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\mapi.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\MemoryPool.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Queue.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\SharedPtr.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\ShareMemory.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Signal.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Socket.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\SRWLock.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Task.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\Thread.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\mdk\ThreadPool.h">
+      <Filter>mdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\EpollFrame.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\EpollMonitor.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\HostData.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\IOCPFrame.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\IOCPMonitor.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetConnect.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetEngine.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetEventMonitor.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetHost.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetServer.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\STEpoll.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\STIocp.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetConnect.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetEngine.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetHost.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetServer.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\GameServer.h">
+      <Filter>Classes\game_server</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\framework\source\mdk\atom.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\ConfigFile.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Executor.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\FinishedTime.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\IOBuffer.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\IOBufferBlock.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Lock.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Logger.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\mapi.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\MemoryPool.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Queue.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\ShareMemory.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Signal.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Socket.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\SRWLock.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Task.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\Thread.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\mdk\ThreadPool.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\EpollFrame.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\EpollMonitor.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\HostData.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\IOCPFrame.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\IOCPMonitor.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetConnect.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetEngine.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetEventMonitor.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetHost.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetServer.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\STEpoll.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\STIocp.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetConnect.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetEngine.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetHost.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetServer.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\main.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\GameServer.cpp">
+      <Filter>Classes\game_server</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

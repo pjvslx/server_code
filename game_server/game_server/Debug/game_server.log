@@ -1,0 +1,48 @@
+﻿Build started 2017/6/15 23:04:12.
+     1>Project "E:\server_code\server\game_server\game_server\game_server.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Classes\game_server /I..\..\framework\include\frame\netserver /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Classes\game_server\GameServer.cpp
+         GameServer.cpp
+       Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\server_code\server\game_server\Debug\game_server.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\server_code\server\game_server\Debug\game_server.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\server_code\server\game_server\Debug\game_server.lib" /MACHINE:X86 Debug\GameServer.obj
+         Debug\main.obj
+         Debug\EpollFrame.obj
+         Debug\EpollMonitor.obj
+         Debug\HostData.obj
+         Debug\IOCPFrame.obj
+         Debug\IOCPMonitor.obj
+         Debug\NetConnect.obj
+         Debug\NetEngine.obj
+         Debug\NetEventMonitor.obj
+         Debug\NetHost.obj
+         Debug\NetServer.obj
+         Debug\STEpoll.obj
+         Debug\STIocp.obj
+         Debug\STNetConnect.obj
+         Debug\STNetEngine.obj
+         Debug\STNetHost.obj
+         Debug\STNetServer.obj
+         Debug\atom.obj
+         Debug\ConfigFile.obj
+         Debug\Executor.obj
+         Debug\FinishedTime.obj
+         Debug\IOBuffer.obj
+         Debug\IOBufferBlock.obj
+         Debug\Lock.obj
+         Debug\Logger.obj
+         Debug\mapi.obj
+         Debug\MemoryPool.obj
+         Debug\Queue.obj
+         Debug\ShareMemory.obj
+         Debug\Signal.obj
+         Debug\Socket.obj
+         Debug\SRWLock.obj
+         Debug\Task.obj
+         Debug\Thread.obj
+         Debug\ThreadPool.obj
+         game_server.vcxproj -> E:\server_code\server\game_server\Debug\game_server.exe
+     1>Done Building Project "E:\server_code\server\game_server\game_server\game_server.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.92

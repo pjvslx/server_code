@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AA52FD95-A44B-4AA1-A876-DB12E4DDFA04}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>game_server</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Classes\game_server;..\..\framework\include\frame\netserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Classes\game_server\GameServer.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\EpollFrame.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\EpollMonitor.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\HostData.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\IOCPFrame.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\IOCPMonitor.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetConnect.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetEngine.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetEventMonitor.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetHost.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\NetServer.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\STEpoll.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\STIocp.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetConnect.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetEngine.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetHost.h" />
+    <ClInclude Include="..\..\framework\include\frame\netserver\STNetServer.h" />
+    <ClInclude Include="..\..\framework\include\mdk\atom.h" />
+    <ClInclude Include="..\..\framework\include\mdk\ConfigFile.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Executor.h" />
+    <ClInclude Include="..\..\framework\include\mdk\FinishedTime.h" />
+    <ClInclude Include="..\..\framework\include\mdk\FixLengthInt.h" />
+    <ClInclude Include="..\..\framework\include\mdk\IOBuffer.h" />
+    <ClInclude Include="..\..\framework\include\mdk\IOBufferBlock.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Lock.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Logger.h" />
+    <ClInclude Include="..\..\framework\include\mdk\mapi.h" />
+    <ClInclude Include="..\..\framework\include\mdk\MemoryPool.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Queue.h" />
+    <ClInclude Include="..\..\framework\include\mdk\SharedPtr.h" />
+    <ClInclude Include="..\..\framework\include\mdk\ShareMemory.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Signal.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Socket.h" />
+    <ClInclude Include="..\..\framework\include\mdk\SRWLock.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Task.h" />
+    <ClInclude Include="..\..\framework\include\mdk\Thread.h" />
+    <ClInclude Include="..\..\framework\include\mdk\ThreadPool.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Classes\game_server\GameServer.cpp" />
+    <ClCompile Include="..\..\Classes\main.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\EpollFrame.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\EpollMonitor.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\HostData.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\IOCPFrame.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\IOCPMonitor.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetConnect.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetEngine.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetEventMonitor.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetHost.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\NetServer.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\STEpoll.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\STIocp.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetConnect.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetEngine.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetHost.cpp" />
+    <ClCompile Include="..\..\framework\source\frame\netserver\STNetServer.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\atom.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\ConfigFile.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Executor.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\FinishedTime.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\IOBuffer.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\IOBufferBlock.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Lock.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Logger.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\mapi.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\MemoryPool.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Queue.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\ShareMemory.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Signal.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Socket.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\SRWLock.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Task.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\Thread.cpp" />
+    <ClCompile Include="..\..\framework\source\mdk\ThreadPool.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
