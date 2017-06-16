@@ -1,0 +1,5 @@
+/game_server/game_server/Debug/*.obj
+/game_server/game_server/Debug/*.idb
+/game_server/game_server/Debug/*.pdb
+/game_server/game_server/Debug/*
+/game_server/game_server/Debug/*.log
