@@ -165,6 +165,8 @@ void* ThreadPool::ThreadFunc(void* pParam)
 		{
 			pTask = PullTask();//取得任务
 			if ( NULL == pTask ) break;
+			ThreadID id = pContext->thread.GetID();
+			printf("pTask->Excute id = %llu\n",id);
 			pTask->Execute();//执行任务
 			ReleaseTask(pTask);
 		}

@@ -51,9 +51,9 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\Classes\game_server;..\..\framework\include\frame\netserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\utils;..\..\Classes\game_server;..\..\framework\include\frame\netserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +116,18 @@
     <ClInclude Include="..\..\framework\include\mdk\Task.h" />
     <ClInclude Include="..\..\framework\include\mdk\Thread.h" />
     <ClInclude Include="..\..\framework\include\mdk\ThreadPool.h" />
+    <ClInclude Include="..\..\utils\file\Cast.h" />
+    <ClInclude Include="..\..\utils\file\FileUtil.h" />
+    <ClInclude Include="..\..\utils\json\document.h" />
+    <ClInclude Include="..\..\utils\json\filestream.h" />
+    <ClInclude Include="..\..\utils\json\internal\pow10.h" />
+    <ClInclude Include="..\..\utils\json\internal\stack.h" />
+    <ClInclude Include="..\..\utils\json\internal\strfunc.h" />
+    <ClInclude Include="..\..\utils\json\prettywriter.h" />
+    <ClInclude Include="..\..\utils\json\rapidjson.h" />
+    <ClInclude Include="..\..\utils\json\reader.h" />
+    <ClInclude Include="..\..\utils\json\stringbuffer.h" />
+    <ClInclude Include="..\..\utils\json\writer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Classes\game_server\GameServer.cpp" />
@@ -154,6 +166,8 @@
     <ClCompile Include="..\..\framework\source\mdk\Task.cpp" />
     <ClCompile Include="..\..\framework\source\mdk\Thread.cpp" />
     <ClCompile Include="..\..\framework\source\mdk\ThreadPool.cpp" />
+    <ClCompile Include="..\..\utils\file\Cast.cpp" />
+    <ClCompile Include="..\..\utils\file\FileUtil.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

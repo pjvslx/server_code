@@ -1,11 +1,47 @@
 ﻿#include "GameServer.h"
 #include <stdio.h>
 #include <string.h>
-#include <windows.h>
+#include "json/document.h"
+#include "json/writer.h"
+#include "file/FileUtil.h"
+#include "file/Cast.h"
 
+using namespace std;
 GameServer::GameServer()
 {
-	Listen(8888);
+	rapidjson::Document jsonDoc;
+	int port = 8888;
+	string content = FileUtil::getInstance()->getStringFromFile("../../config/game_server/config.json");
+	if (!content.empty())
+	{
+		jsonDoc.Parse<rapidjson::kParseDefaultFlags>(content.c_str());
+
+		if (jsonDoc.HasMember("port") && jsonDoc["port"].IsNumber())
+		{
+			auto &fs = jsonDoc["port"];
+			port = fs.GetInt();
+		}
+
+		if (jsonDoc.HasMember("log_dir") && jsonDoc["log_dir"].IsString())
+		{
+			auto &fs = jsonDoc["log_dir"];
+			string dir = fs.GetString();
+			if (dir[dir.length()] != '/')
+			{
+				dir = dir.append("/");
+			}
+			FileUtil::getInstance()->setDir(dir);
+		}
+
+		FileUtil::getInstance()->writeLog("=======GameServer started=======");
+		FileUtil::getInstance()->writeLog("=======GameServer started=======");
+		for (int i = 0; i < 10; i++)
+		{
+			FileUtil::getInstance()->writeLog(std::format("=======GameServer %d", i));
+		}
+	}
+	
+	Listen(port);
 }
 
 int GameServer::Main()

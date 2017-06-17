@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "STNetServer.h"
 #include "GameServer.h"
+#include "file/FileUtil.h"
+#include "file/Cast.h"
 void main()
 {
-	printf("=======GameServer started=======\n");
 	GameServer server;
 	server.Start();
 	server.WaitStop();

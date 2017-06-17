@@ -16,6 +16,18 @@
     <Filter Include="Classes\game_server">
       <UniqueIdentifier>{95d48d06-2689-40bb-be4b-d0797c268be6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{19062edc-b2e9-4e73-b466-36fb3fe49691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\file">
+      <UniqueIdentifier>{90785c54-b5e9-4104-b731-6156a875cedc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\json">
+      <UniqueIdentifier>{00f7121b-8e71-4d3c-8614-c573857c2682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\json\internal">
+      <UniqueIdentifier>{0bea5bcc-02be-4f48-b98f-471f1eca5a5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\framework\include\mdk\atom.h">
@@ -129,6 +141,42 @@
     <ClInclude Include="..\..\Classes\game_server\GameServer.h">
       <Filter>Classes\game_server</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\utils\file\FileUtil.h">
+      <Filter>utils\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\file\Cast.h">
+      <Filter>utils\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\internal\pow10.h">
+      <Filter>utils\json\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\internal\stack.h">
+      <Filter>utils\json\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\internal\strfunc.h">
+      <Filter>utils\json\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\document.h">
+      <Filter>utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\filestream.h">
+      <Filter>utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\prettywriter.h">
+      <Filter>utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\rapidjson.h">
+      <Filter>utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\reader.h">
+      <Filter>utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\stringbuffer.h">
+      <Filter>utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\json\writer.h">
+      <Filter>utils\json</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\framework\source\mdk\atom.cpp">
@@ -238,6 +286,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Classes\game_server\GameServer.cpp">
       <Filter>Classes\game_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\file\FileUtil.cpp">
+      <Filter>utils\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\file\Cast.cpp">
+      <Filter>utils\file</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
