@@ -10,6 +10,7 @@ public:
 	std::string getStringFromFile(const std::string& filename);
 	bool writeLog(const std::string& str);
 	void setDir(std::string dir);
+	void setLogMaxCapacity(int capacity){ max_capacity = capacity; };
 private:
 	bool init();
 private:
@@ -17,4 +18,5 @@ private:
 	FILE* m_logFile = nullptr;
 	time_t m_logTime;
 	std::string m_dir;
+	int max_capacity = 10 * 1024 * 1024;
 };

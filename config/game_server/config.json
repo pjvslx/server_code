@@ -2,5 +2,6 @@
   "port":9011,
   "io_thread_num":16,
   "work_thread_num":16,
-  "log_dir":"../../log/"
+  "log_dir":"../../log/",
+  "file_max_capacity":100
 }

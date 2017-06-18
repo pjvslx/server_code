@@ -33,6 +33,13 @@ GameServer::GameServer()
 			FileUtil::getInstance()->setDir(dir);
 		}
 
+		if (jsonDoc.HasMember("file_max_capacity") && jsonDoc["file_max_capacity"].IsNumber())
+		{
+			auto &fs = jsonDoc["file_max_capacity"];
+			int max = fs.GetInt();
+			FileUtil::getInstance()->setLogMaxCapacity(max);
+		}
+
 		FileUtil::getInstance()->writeLog("=======GameServer started=======");
 		FileUtil::getInstance()->writeLog("=======GameServer started=======");
 		for (int i = 0; i < 10; i++)

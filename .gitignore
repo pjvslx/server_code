@@ -4,3 +4,5 @@
 /game_server/game_server/Debug/*
 /game_server/game_server/Debug/*.log
 /game_server/*.sdf
+/log/*.log
+/game_server/Debug
