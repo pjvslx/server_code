@@ -20,3 +20,5 @@ private:
 	std::string m_dir;
 	int max_capacity = 10 * 1024 * 1024;
 };
+
+#define LOG(i) FileUtil::getInstance()->writeLog((i));

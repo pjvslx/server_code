@@ -187,7 +187,7 @@ public:
 		就是调用NetServer::Connect()时传入的第3个参数
 	*/
 	void* GetSvrInfo();
-private:
+public:
 	NetConnect* m_pConnect;//连接对象指针,调用NetConnect的业务层接口，屏蔽NetConnect的通信层接口
 	
 };

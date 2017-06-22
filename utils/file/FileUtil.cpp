@@ -91,6 +91,7 @@ bool FileUtil::writeLog(const std::string& str)
 			1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
 		m_logFile = fopen(filename, "ab");
 	}
+	printf(newStr.c_str());
 	fwrite((char*)newStr.c_str(), 1, newStr.length(), m_logFile);
 	fclose(m_logFile);
 	return true;

@@ -34,7 +34,7 @@ NetEngine::NetEngine()
 	m_startError = "";
 	m_nHeartTime = 0;//心跳间隔(S)，默认不检查
 	m_pNetMonitor = NULL;
-	m_ioThreadCount = 1;//网络io线程数量
+	m_ioThreadCount = 16;//网络io线程数量
 	m_workThreadCount = 1;//工作线程数量
 	m_pNetServer = NULL;
 	m_averageConnectCount = 5000;

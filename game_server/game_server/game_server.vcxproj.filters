@@ -28,6 +28,9 @@
     <Filter Include="utils\json\internal">
       <UniqueIdentifier>{0bea5bcc-02be-4f48-b98f-471f1eca5a5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\game_server\test">
+      <UniqueIdentifier>{b4640487-89aa-4482-81b1-8cd37b73e028}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\framework\include\mdk\atom.h">
@@ -177,6 +180,27 @@
     <ClInclude Include="..\..\utils\json\writer.h">
       <Filter>utils\json</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\utils\file\Buffer.h">
+      <Filter>utils\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\file\GException.h">
+      <Filter>utils\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\file\PlatformMacros.h">
+      <Filter>utils\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\file\NetPacket.h">
+      <Filter>utils\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\ProtocolFactory.h">
+      <Filter>Classes\game_server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\OpCode.h">
+      <Filter>Classes\game_server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\test\TestDef.h">
+      <Filter>Classes\game_server\test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\framework\source\mdk\atom.cpp">
@@ -292,6 +316,18 @@
     </ClCompile>
     <ClCompile Include="..\..\utils\file\Cast.cpp">
       <Filter>utils\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\file\Buffer.cpp">
+      <Filter>utils\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\file\GException.cpp">
+      <Filter>utils\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\file\NetPacket.cpp">
+      <Filter>utils\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\ProtocolFactory.cpp">
+      <Filter>Classes\game_server</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

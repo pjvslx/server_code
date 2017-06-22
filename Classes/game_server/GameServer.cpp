@@ -5,6 +5,10 @@
 #include "json/writer.h"
 #include "file/FileUtil.h"
 #include "file/Cast.h"
+#include "file/NetPacket.h"
+#include "file/Buffer.h"
+#include "NetConnect.h"
+#include "ProtocolFactory.h"
 
 using namespace std;
 GameServer::GameServer()
@@ -81,5 +85,60 @@ void GameServer::OnCloseConnect(mdk::NetHost &host)
 
 void GameServer::OnMsg(mdk::NetHost &host)
 {
+	unsigned char c[256] = {0};
+	//bool ret = host.Recv(c,10,true);
+	//LOG("========GameServer::OnMsg=========== c = %s",c);
+	while (true)
+	{
+		NetPacketHeader header;
+		unsigned char c[10*1024] = { 0 };
+		//尝试性读取一个包头长度
+		bool ret = host.Recv(reinterpret_cast<uint8*>(&header),PACKET_HEADER_SIZE,false);
+		if (ret)
+		{
+			//通过包头去尝试性读取整包
+			ret = host.Recv(c, header.packetSize, false);
+			if (!ret)
+			{
+				break;
+			}
 
+			if (header.packetSize > sizeof(c))
+			{
+				host.Close();
+				break;
+			}
+
+			NetPacket* p = ProtocolFactory::getInstance()->createNetPacket(header.opcode);
+			if (p)
+			{
+				try
+				{
+					p->decode(host);
+				}
+				catch (std::string e)
+				{
+					host.Close();
+					delete p;
+					p = nullptr;
+				}
+			}
+			else
+			{
+				//把没监听的包体读出清除掉
+				host.Recv(c, header.packetSize, true);
+			}
+
+			if (p)
+			{
+				delete p;
+				p = nullptr;
+			}
+		}
+		else
+		{
+			//包头都不完整
+			break;
+		}
+	}
 }

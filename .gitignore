@@ -6,3 +6,5 @@
 /game_server/*.sdf
 /log/*.log
 /game_server/Debug
+/game_server/game_server.v12.suo
+/game_server/game_server.opensdf
