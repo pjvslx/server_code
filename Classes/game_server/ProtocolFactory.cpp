@@ -1,5 +1,5 @@
 #include "ProtocolFactory.h"
-#include "file/NetPacket.h"
+#include "core/NetPacket.h"
 #include "OpCode.h"
 #include "test/TestDef.h"
 
@@ -30,7 +30,7 @@ NetPacket* ProtocolFactory::createNetPacket(int opCode)
 	NetPacket* p = nullptr;
 	if (SMSG_TEST == opCode)
 	{
-		p = new TestMsg();
+		//p = new TestMsg();
 	}
 	return p;
 }

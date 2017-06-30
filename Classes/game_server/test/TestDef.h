@@ -1,21 +1,16 @@
 #pragma once
 
-#include "file/NetPacket.h"
-#include "file/FileUtil.h"
-#include "file/Cast.h"
+#include "core/NetPacket.h"
+#include "core/FileUtil.h"
+#include "core/Cast.h"
 
-struct TestMsg : NetPacket
+struct TestMsg
 {
-	void encode()
+	void decode(NetPacket& packet)
 	{
-		
-	}
-	void decode(mdk::NetHost host)
-	{
-		NetPacket::decode(host);
-		number = readInt(host);
-		str = readString(host);
-		s = readInt16(host);
+		number = packet.readInt();
+		str = packet.readString();
+		s = packet.readInt16();
 		LOG(std::format("number = %d str = %s s = %d", number, str.c_str(), s));
 	}
 

@@ -53,11 +53,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\utils;..\..\Classes\game_server;..\..\framework\include\mdk;..\..\framework\include\frame\netserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\boost_1_42_0;C:\Program Files\MySQL\MySQL Connector C++ 1.1.9\include;C:\Program Files\MySQL\MySQL Server 5.5\include;..\..\utils;..\..\Classes\game_server;..\..\framework\include\mdk;..\..\framework\include\frame\netserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 5.5\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -81,6 +83,9 @@
   <ItemGroup>
     <ClInclude Include="..\..\Classes\game_server\GameServer.h" />
     <ClInclude Include="..\..\Classes\game_server\OpCode.h" />
+    <ClInclude Include="..\..\Classes\game_server\player\Player.h" />
+    <ClInclude Include="..\..\Classes\game_server\player\PlayerDef.h" />
+    <ClInclude Include="..\..\Classes\game_server\player\PlayerManager.h" />
     <ClInclude Include="..\..\Classes\game_server\ProtocolFactory.h" />
     <ClInclude Include="..\..\Classes\game_server\test\TestDef.h" />
     <ClInclude Include="..\..\framework\include\frame\netserver\EpollFrame.h" />
@@ -119,12 +124,15 @@
     <ClInclude Include="..\..\framework\include\mdk\Task.h" />
     <ClInclude Include="..\..\framework\include\mdk\Thread.h" />
     <ClInclude Include="..\..\framework\include\mdk\ThreadPool.h" />
-    <ClInclude Include="..\..\utils\file\Buffer.h" />
-    <ClInclude Include="..\..\utils\file\Cast.h" />
-    <ClInclude Include="..\..\utils\file\FileUtil.h" />
-    <ClInclude Include="..\..\utils\file\GException.h" />
-    <ClInclude Include="..\..\utils\file\NetPacket.h" />
-    <ClInclude Include="..\..\utils\file\PlatformMacros.h" />
+    <ClInclude Include="..\..\utils\core\Buffer.h" />
+    <ClInclude Include="..\..\utils\core\Cast.h" />
+    <ClInclude Include="..\..\utils\core\FileUtil.h" />
+    <ClInclude Include="..\..\utils\core\GException.h" />
+    <ClInclude Include="..\..\utils\core\NetPacket.h" />
+    <ClInclude Include="..\..\utils\core\PlatformMacros.h" />
+    <ClInclude Include="..\..\utils\core\TypeDef.h" />
+    <ClInclude Include="..\..\utils\db\DBHandle.h" />
+    <ClInclude Include="..\..\utils\db\DBMgr.h" />
     <ClInclude Include="..\..\utils\json\document.h" />
     <ClInclude Include="..\..\utils\json\filestream.h" />
     <ClInclude Include="..\..\utils\json\internal\pow10.h" />
@@ -138,6 +146,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Classes\game_server\GameServer.cpp" />
+    <ClCompile Include="..\..\Classes\game_server\player\Player.cpp" />
+    <ClCompile Include="..\..\Classes\game_server\player\PlayerManager.cpp" />
     <ClCompile Include="..\..\Classes\game_server\ProtocolFactory.cpp" />
     <ClCompile Include="..\..\Classes\main.cpp" />
     <ClCompile Include="..\..\framework\source\frame\netserver\EpollFrame.cpp" />
@@ -174,11 +184,13 @@
     <ClCompile Include="..\..\framework\source\mdk\Task.cpp" />
     <ClCompile Include="..\..\framework\source\mdk\Thread.cpp" />
     <ClCompile Include="..\..\framework\source\mdk\ThreadPool.cpp" />
-    <ClCompile Include="..\..\utils\file\Buffer.cpp" />
-    <ClCompile Include="..\..\utils\file\Cast.cpp" />
-    <ClCompile Include="..\..\utils\file\FileUtil.cpp" />
-    <ClCompile Include="..\..\utils\file\GException.cpp" />
-    <ClCompile Include="..\..\utils\file\NetPacket.cpp" />
+    <ClCompile Include="..\..\utils\core\Buffer.cpp" />
+    <ClCompile Include="..\..\utils\core\Cast.cpp" />
+    <ClCompile Include="..\..\utils\core\FileUtil.cpp" />
+    <ClCompile Include="..\..\utils\core\GException.cpp" />
+    <ClCompile Include="..\..\utils\core\NetPacket.cpp" />
+    <ClCompile Include="..\..\utils\db\DBHandle.cpp" />
+    <ClCompile Include="..\..\utils\db\DBMgr.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

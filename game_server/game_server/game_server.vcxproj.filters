@@ -19,9 +19,6 @@
     <Filter Include="utils">
       <UniqueIdentifier>{19062edc-b2e9-4e73-b466-36fb3fe49691}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utils\file">
-      <UniqueIdentifier>{90785c54-b5e9-4104-b731-6156a875cedc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="utils\json">
       <UniqueIdentifier>{00f7121b-8e71-4d3c-8614-c573857c2682}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,15 @@
     </Filter>
     <Filter Include="Classes\game_server\test">
       <UniqueIdentifier>{b4640487-89aa-4482-81b1-8cd37b73e028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\db">
+      <UniqueIdentifier>{6e63ab51-1dda-43db-9cc6-57c294f82ca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\game_server\player">
+      <UniqueIdentifier>{4fb473fb-94ad-4995-b377-11b5bdf4414b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\core">
+      <UniqueIdentifier>{90785c54-b5e9-4104-b731-6156a875cedc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -144,12 +150,6 @@
     <ClInclude Include="..\..\Classes\game_server\GameServer.h">
       <Filter>Classes\game_server</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\utils\file\FileUtil.h">
-      <Filter>utils\file</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\utils\file\Cast.h">
-      <Filter>utils\file</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\utils\json\internal\pow10.h">
       <Filter>utils\json\internal</Filter>
     </ClInclude>
@@ -180,18 +180,6 @@
     <ClInclude Include="..\..\utils\json\writer.h">
       <Filter>utils\json</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\utils\file\Buffer.h">
-      <Filter>utils\file</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\utils\file\GException.h">
-      <Filter>utils\file</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\utils\file\PlatformMacros.h">
-      <Filter>utils\file</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\utils\file\NetPacket.h">
-      <Filter>utils\file</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Classes\game_server\ProtocolFactory.h">
       <Filter>Classes\game_server</Filter>
     </ClInclude>
@@ -200,6 +188,42 @@
     </ClInclude>
     <ClInclude Include="..\..\Classes\game_server\test\TestDef.h">
       <Filter>Classes\game_server\test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\db\DBHandle.h">
+      <Filter>utils\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\db\DBMgr.h">
+      <Filter>utils\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\player\PlayerManager.h">
+      <Filter>Classes\game_server\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\player\Player.h">
+      <Filter>Classes\game_server\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\player\PlayerDef.h">
+      <Filter>Classes\game_server\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\Buffer.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\Cast.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\FileUtil.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\GException.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\NetPacket.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\PlatformMacros.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\TypeDef.h">
+      <Filter>utils\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -311,23 +335,35 @@
     <ClCompile Include="..\..\Classes\game_server\GameServer.cpp">
       <Filter>Classes\game_server</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\utils\file\FileUtil.cpp">
-      <Filter>utils\file</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\utils\file\Cast.cpp">
-      <Filter>utils\file</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\utils\file\Buffer.cpp">
-      <Filter>utils\file</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\utils\file\GException.cpp">
-      <Filter>utils\file</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\utils\file\NetPacket.cpp">
-      <Filter>utils\file</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Classes\game_server\ProtocolFactory.cpp">
       <Filter>Classes\game_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\db\DBHandle.cpp">
+      <Filter>utils\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\db\DBMgr.cpp">
+      <Filter>utils\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\player\PlayerManager.cpp">
+      <Filter>Classes\game_server\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\player\Player.cpp">
+      <Filter>Classes\game_server\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\core\Buffer.cpp">
+      <Filter>utils\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\core\Cast.cpp">
+      <Filter>utils\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\core\FileUtil.cpp">
+      <Filter>utils\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\core\GException.cpp">
+      <Filter>utils\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\core\NetPacket.cpp">
+      <Filter>utils\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

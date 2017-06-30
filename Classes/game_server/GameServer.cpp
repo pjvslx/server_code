@@ -3,12 +3,13 @@
 #include <string.h>
 #include "json/document.h"
 #include "json/writer.h"
-#include "file/FileUtil.h"
-#include "file/Cast.h"
-#include "file/NetPacket.h"
-#include "file/Buffer.h"
+#include "core/FileUtil.h"
+#include "core/Cast.h"
+#include "core/NetPacket.h"
+#include "core/Buffer.h"
 #include "NetConnect.h"
 #include "ProtocolFactory.h"
+#include "test/TestDef.h"
 
 using namespace std;
 GameServer::GameServer()
@@ -109,30 +110,19 @@ void GameServer::OnMsg(mdk::NetHost &host)
 				break;
 			}
 
-			NetPacket* p = ProtocolFactory::getInstance()->createNetPacket(header.opcode);
-			if (p)
+			host.Recv(c, header.packetSize, true);
+			NetPacket p;
+			p.setHeaderInfo(header.opcode,header.packetSize);
+			p.setData(c + PACKET_HEADER_SIZE, header.packetSize - PACKET_HEADER_SIZE);
+			try
 			{
-				try
-				{
-					p->decode(host);
-				}
-				catch (std::string e)
-				{
-					host.Close();
-					delete p;
-					p = nullptr;
-				}
+				TestMsg msg;
+				msg.decode(p);
 			}
-			else
+			catch (std::string e)
 			{
-				//把没监听的包体读出清除掉
-				host.Recv(c, header.packetSize, true);
-			}
-
-			if (p)
-			{
-				delete p;
-				p = nullptr;
+				host.Close();
+				LOG(std::format("exception %s",e.c_str()));
 			}
 		}
 		else
