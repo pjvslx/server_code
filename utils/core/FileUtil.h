@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <time.h>
+#include "core/Cast.h"
 
 class FileUtil
 {

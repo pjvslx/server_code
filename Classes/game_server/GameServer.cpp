@@ -8,10 +8,33 @@
 #include "core/NetPacket.h"
 #include "core/Buffer.h"
 #include "NetConnect.h"
-#include "ProtocolFactory.h"
 #include "test/TestDef.h"
+#include "MsgDispatcher.h"
+#include "player/PlayerManager.h"
 
 using namespace std;
+
+GameServer* GameServer::m_instance = nullptr;
+
+GameServer* GameServer::getInstance()
+{
+	if (!m_instance)
+	{
+		m_instance = new GameServer;
+	}
+
+	return m_instance;
+}
+
+bool GameServer::init()
+{
+	bool ret = PlayerManager::getInstance()->init();
+	if (!ret)
+	{
+		return ret;
+	}
+}
+
 GameServer::GameServer()
 {
 	rapidjson::Document jsonDoc;
@@ -116,8 +139,7 @@ void GameServer::OnMsg(mdk::NetHost &host)
 			p.setData(c + PACKET_HEADER_SIZE, header.packetSize - PACKET_HEADER_SIZE);
 			try
 			{
-				TestMsg msg;
-				msg.decode(p);
+				MsgDispatcher::getInstance()->handlePacket(&p);
 			}
 			catch (std::string e)
 			{

@@ -3,9 +3,10 @@
 #include "GameServer.h"
 #include "core/FileUtil.h"
 #include "core/Cast.h"
+#include "MsgDispatcher.h"
 void main()
 {
-	GameServer server;
-	server.Start();
-	server.WaitStop();
+	GameServer::getInstance()->Start();
+	GameServer::getInstance()->init();
+	GameServer::getInstance()->WaitStop();
 }

@@ -180,9 +180,6 @@
     <ClInclude Include="..\..\utils\json\writer.h">
       <Filter>utils\json</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Classes\game_server\ProtocolFactory.h">
-      <Filter>Classes\game_server</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Classes\game_server\OpCode.h">
       <Filter>Classes\game_server</Filter>
     </ClInclude>
@@ -224,6 +221,12 @@
     </ClInclude>
     <ClInclude Include="..\..\utils\core\TypeDef.h">
       <Filter>utils\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\db\AsynHandle.h">
+      <Filter>utils\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\MsgDispatcher.h">
+      <Filter>Classes\game_server</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -335,9 +338,6 @@
     <ClCompile Include="..\..\Classes\game_server\GameServer.cpp">
       <Filter>Classes\game_server</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Classes\game_server\ProtocolFactory.cpp">
-      <Filter>Classes\game_server</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\utils\db\DBHandle.cpp">
       <Filter>utils\db</Filter>
     </ClCompile>
@@ -364,6 +364,12 @@
     </ClCompile>
     <ClCompile Include="..\..\utils\core\NetPacket.cpp">
       <Filter>utils\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\db\AsynHandle.cpp">
+      <Filter>utils\db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\MsgDispatcher.cpp">
+      <Filter>Classes\game_server</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

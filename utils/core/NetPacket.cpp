@@ -79,11 +79,6 @@ void NetPacket::setData(unsigned char* p, int length)
 	m_length = length;
 }
 
-void NetPacket::decode(mdk::NetHost host)
-{
-	host.Recv(reinterpret_cast<uint8*>(&m_header), PACKET_HEADER_SIZE, true);
-}
-
 int8 NetPacket::readInt8()
 {
 	int8 value;
@@ -207,7 +202,115 @@ int64 NetPacket::readInt64()
 	return _BITSWAP64(value);
 }
 
-void NetPacket::encode()
+void NetPacket::writeInt8(int8 value)
 {
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeInt8 exception");
+	}
 
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
+}
+
+void NetPacket::writeUint8(uint8 value)
+{
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeUint8 exception");
+	}
+
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
+}
+
+void NetPacket::writeBool(bool value)
+{
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeBool exception");
+	}
+
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
+}
+
+void NetPacket::writeInt16(int16 value)
+{
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeInt16 exception");
+	}
+
+	value = _BITSWAP16(value);
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
+}
+
+void NetPacket::writeUint16(uint16 value)
+{
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeUint16 exception");
+	}
+
+	value = _BITSWAP16(value);
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
+}
+
+void NetPacket::writeInt(int value)
+{
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeInt exception");
+	}
+
+	value = _BITSWAP32(value);
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
+}
+
+void NetPacket::writeUint32(uint32 value)
+{
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeUint32 exception");
+	}
+
+	value = _BITSWAP32(value);
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
+}
+
+void NetPacket::writeString(std::string value)
+{
+	uint16 length = value.length();
+	if (m_startPos + sizeof(length) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeString length exception");
+	}
+
+	memcpy(m_pBuff + m_startPos, &_BITSWAP16(length), sizeof(length));
+	m_startPos += sizeof(length);
+
+	if (m_startPos + length > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeString content exception");
+	}
+
+	memcpy(m_pBuff + m_startPos,value.data(),length);
+	m_startPos += length;
+}
+
+void NetPacket::writeInt64(int64 value)
+{
+	if (m_startPos + sizeof(value) > sizeof(m_pBuff))
+	{
+		throw std::string("NetPacket::writeInt64 exception");
+	}
+
+	value = _BITSWAP64(value);
+	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	m_startPos += sizeof(value);
 }
