@@ -1,9 +1,12 @@
-#include "NetPacket.h"
+﻿#include "NetPacket.h"
 #include <cstring>
+#include <iostream>
+#include <sstream>
 
-NetPacket::NetPacket()
+NetPacket::NetPacket(uint16 opcode)
 {
 	memset(m_pBuff,0,sizeof(m_pBuff));
+	m_header.opcode = opcode;
 	m_startPos = 0;
 	m_length = 0;
 }
@@ -66,11 +69,11 @@ NetPacket::~NetPacket()
 // 	memcpy(m_pBuff,p,size);
 // }
 
-void NetPacket::setHeaderInfo(uint16 op_code, uint16 packet_size)
-{
-	m_header.opcode = op_code;
-	m_header.packetSize = packet_size;
-}
+// void NetPacket::setHeaderInfo(uint16 op_code, uint16 packet_size)
+// {
+// 	m_header.opcode = op_code;
+// 	m_header.packetSize = packet_size;
+// }
 
 void NetPacket::setData(unsigned char* p, int length)
 {
@@ -209,7 +212,7 @@ void NetPacket::writeInt8(int8 value)
 		throw std::string("NetPacket::writeInt8 exception");
 	}
 
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }
 
@@ -220,7 +223,7 @@ void NetPacket::writeUint8(uint8 value)
 		throw std::string("NetPacket::writeUint8 exception");
 	}
 
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }
 
@@ -231,7 +234,7 @@ void NetPacket::writeBool(bool value)
 		throw std::string("NetPacket::writeBool exception");
 	}
 
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }
 
@@ -243,7 +246,7 @@ void NetPacket::writeInt16(int16 value)
 	}
 
 	value = _BITSWAP16(value);
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }
 
@@ -255,7 +258,7 @@ void NetPacket::writeUint16(uint16 value)
 	}
 
 	value = _BITSWAP16(value);
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }
 
@@ -267,7 +270,7 @@ void NetPacket::writeInt(int value)
 	}
 
 	value = _BITSWAP32(value);
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }
 
@@ -279,7 +282,7 @@ void NetPacket::writeUint32(uint32 value)
 	}
 
 	value = _BITSWAP32(value);
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }
 
@@ -291,7 +294,8 @@ void NetPacket::writeString(std::string value)
 		throw std::string("NetPacket::writeString length exception");
 	}
 
-	memcpy(m_pBuff + m_startPos, &_BITSWAP16(length), sizeof(length));
+	length = _BITSWAP16(length);
+	memcpy(m_pBuff + m_startPos, (const void*)&length, sizeof(length));
 	m_startPos += sizeof(length);
 
 	if (m_startPos + length > sizeof(m_pBuff))
@@ -299,7 +303,7 @@ void NetPacket::writeString(std::string value)
 		throw std::string("NetPacket::writeString content exception");
 	}
 
-	memcpy(m_pBuff + m_startPos,value.data(),length);
+	memcpy(m_pBuff + m_startPos, value.c_str(), length);
 	m_startPos += length;
 }
 
@@ -311,6 +315,6 @@ void NetPacket::writeInt64(int64 value)
 	}
 
 	value = _BITSWAP64(value);
-	memcpy(m_pBuff + m_startPos, &value, sizeof(value));
+	memcpy(m_pBuff + m_startPos, (const void*)(&value), sizeof(value));
 	m_startPos += sizeof(value);
 }

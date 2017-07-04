@@ -228,6 +228,9 @@
     <ClInclude Include="..\..\Classes\game_server\MsgDispatcher.h">
       <Filter>Classes\game_server</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\utils\core\DoubleBufferQueue.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\framework\source\mdk\atom.cpp">

@@ -33,6 +33,8 @@ bool GameServer::init()
 	{
 		return ret;
 	}
+
+	return true;
 }
 
 GameServer::GameServer()
@@ -79,17 +81,19 @@ GameServer::GameServer()
 	Listen(port);
 }
 
-int GameServer::Main()
+void* GameServer::Main(void* pParam)
 {
 	while (IsOk())
 	{
 #ifndef WIN32
 		usleep(1000 * 1000);
 #else
-		Sleep(1000);
+		__mainThreadLoop();
+		Sleep(10);
 #endif
 	}
-	return 1;
+
+	return nullptr;
 }
 
 void GameServer::OnConnect(mdk::NetHost &host)
@@ -127,6 +131,9 @@ void GameServer::OnMsg(mdk::NetHost &host)
 				break;
 			}
 
+			header.opcode = _BITSWAP16(header.opcode);
+			header.packetSize = _BITSWAP16(header.packetSize);
+
 			if (header.packetSize > sizeof(c))
 			{
 				host.Close();
@@ -134,12 +141,13 @@ void GameServer::OnMsg(mdk::NetHost &host)
 			}
 
 			host.Recv(c, header.packetSize, true);
-			NetPacket p;
-			p.setHeaderInfo(header.opcode,header.packetSize);
-			p.setData(c + PACKET_HEADER_SIZE, header.packetSize - PACKET_HEADER_SIZE);
+			NetPacket *p = new NetPacket(header.opcode);
+			p->setData(c + PACKET_HEADER_SIZE, header.packetSize - PACKET_HEADER_SIZE);
+			p->setConnectId(host.ID());
 			try
 			{
-				MsgDispatcher::getInstance()->handlePacket(&p);
+				//MsgDispatcher::getInstance()->handlePacket(p);
+				m_MsgQueue.put(p);
 			}
 			catch (std::string e)
 			{
@@ -151,6 +159,28 @@ void GameServer::OnMsg(mdk::NetHost &host)
 		{
 			//包头都不完整
 			break;
+		}
+	}
+}
+
+void GameServer::__mainThreadLoop()
+{
+	__handleBufferQueue();
+}
+
+void GameServer::__handleBufferQueue()
+{
+	if (m_MsgQueue.swap())
+	{
+		NetPacket *packet;
+		while (!m_MsgQueue.isEmpty())
+		{
+			packet = m_MsgQueue.get();
+			assert(packet);
+			if (packet)
+			{
+				MsgDispatcher::getInstance()->handlePacket(packet);
+			}
 		}
 	}
 }

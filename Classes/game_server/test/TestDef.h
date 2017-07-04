@@ -14,6 +14,13 @@ struct TestMsg
 		LOG(std::format("number = %d str = %s s = %d", number, str.c_str(), s));
 	}
 
+	void encode(NetPacket& packet)
+	{
+		packet.writeInt(number);
+		packet.writeString(str);
+		packet.writeInt16(s);
+	}
+
 	int number;
 	std::string str;
 	short s;

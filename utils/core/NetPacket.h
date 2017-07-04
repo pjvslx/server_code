@@ -18,13 +18,18 @@ struct NetPacketHeader
 class NetPacket
 {
 public:
-	NetPacket();
+	NetPacket(uint16 opcode);
 	~NetPacket();
 
 public:
-	void setHeaderInfo(uint16 op_code, uint16 packet_size);
+	//void setHeaderInfo(uint16 op_code, uint16 packet_size);
 	void setData(unsigned char* p, int length);
 	uint16 getOpcode(){ return m_header.opcode; };
+	static void free(NetPacket*& pck){ delete pck; };
+	int64 getConnectId(){ return m_connectId; };
+	void setConnectId(int64 connectId){ m_connectId = connectId; };
+	int getPacketContentSize(){ return m_startPos; };
+	unsigned char* getData(){ return m_pBuff; };
 public:
 	int8 readInt8();
 	uint8 readUint8();
@@ -52,5 +57,6 @@ private:
 // 	bool m_bParseHeader;
  	int m_startPos;
 	int m_length;
+	int64 m_connectId = -1;
 // 	int m_writePos;
 };

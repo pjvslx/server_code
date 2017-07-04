@@ -126,6 +126,7 @@
     <ClInclude Include="..\..\framework\include\mdk\ThreadPool.h" />
     <ClInclude Include="..\..\utils\core\Buffer.h" />
     <ClInclude Include="..\..\utils\core\Cast.h" />
+    <ClInclude Include="..\..\utils\core\DoubleBufferQueue.h" />
     <ClInclude Include="..\..\utils\core\FileUtil.h" />
     <ClInclude Include="..\..\utils\core\GException.h" />
     <ClInclude Include="..\..\utils\core\NetPacket.h" />

@@ -58,4 +58,6 @@ void MsgDispatcher::handlePacket(NetPacket* packet)
 	{
 		m_mapOpcodeFunc[opcode](opcode, packet);
 	}
+
+	delete packet;
 }
