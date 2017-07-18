@@ -22,6 +22,9 @@ public:
 	void OnCloseConnect(mdk::NetHost &host);
 	void OnMsg(mdk::NetHost &host);
 
+	//Ö÷¶¯Ö´ÐÐ
+	void* closeConnection(void* obj, void* p);
+
 	void __mainThreadLoop();
 	void __handleBufferQueue();
 private:

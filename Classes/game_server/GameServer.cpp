@@ -11,6 +11,7 @@
 #include "test/TestDef.h"
 #include "MsgDispatcher.h"
 #include "player/PlayerManager.h"
+#include "AsynTaskManager.h"
 
 using namespace std;
 
@@ -23,6 +24,10 @@ GameServer* GameServer::getInstance()
 		m_instance = new GameServer;
 	}
 
+	SYSTEMTIME time;
+	GetLocalTime(&time);
+	int64 x = time.wMilliseconds;
+
 	return m_instance;
 }
 
@@ -33,6 +38,8 @@ bool GameServer::init()
 	{
 		return ret;
 	}
+
+	AsynTaskManager::newInstance();
 
 	return true;
 }
@@ -88,6 +95,7 @@ void* GameServer::Main(void* pParam)
 #ifndef WIN32
 		usleep(1000 * 1000);
 #else
+		
 		__mainThreadLoop();
 		Sleep(10);
 #endif
@@ -96,9 +104,23 @@ void* GameServer::Main(void* pParam)
 	return nullptr;
 }
 
+void* GameServer::closeConnection(void*obj, void* p)
+{
+	FileUtil::getInstance()->writeLog("=======GameServer::closeConnection=========");
+	int64 id = *(int64*)(p);
+	delete p;
+	CloseConnect(id);
+	return 0;
+}
+
 void GameServer::OnConnect(mdk::NetHost &host)
 {
 	printf("=======GameServer::OnConnect=========\n");
+	FileUtil::getInstance()->writeLog("=======GameServer::OnConnect=========");
+
+	AsynGameTask *task = new AsynGameTask();
+	int64* p = new int64(host.ID());
+	task->delayExecute(5, mdk::Executor::Bind(&GameServer::closeConnection), this, (void*)p);
 }
 
 void GameServer::OnConnectFailed(char *ip, int port, int reConnectTime)
@@ -113,6 +135,7 @@ void GameServer::OnCloseConnect(mdk::NetHost &host)
 
 void GameServer::OnMsg(mdk::NetHost &host)
 {
+	printf("=======GameServer::OnMsg=========\n");
 	unsigned char c[256] = {0};
 	//bool ret = host.Recv(c,10,true);
 	//LOG("========GameServer::OnMsg=========== c = %s",c);
@@ -166,6 +189,7 @@ void GameServer::OnMsg(mdk::NetHost &host)
 void GameServer::__mainThreadLoop()
 {
 	__handleBufferQueue();
+	AsynTaskManager::instance()->dealTask();
 }
 
 void GameServer::__handleBufferQueue()

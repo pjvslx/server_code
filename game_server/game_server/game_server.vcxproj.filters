@@ -231,6 +231,15 @@
     <ClInclude Include="..\..\utils\core\DoubleBufferQueue.h">
       <Filter>utils\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\AsynGameTask.h">
+      <Filter>Classes\game_server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\AsynTaskManager.h">
+      <Filter>Classes\game_server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\core\Singleton.h">
+      <Filter>utils\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\framework\source\mdk\atom.cpp">
@@ -372,6 +381,12 @@
       <Filter>utils\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Classes\game_server\MsgDispatcher.cpp">
+      <Filter>Classes\game_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\AsynGameTask.cpp">
+      <Filter>Classes\game_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\AsynTaskManager.cpp">
       <Filter>Classes\game_server</Filter>
     </ClCompile>
   </ItemGroup>

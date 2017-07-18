@@ -27,8 +27,7 @@ void main()
 	memcpy(&output2, buffer + sizeof(int), sizeof(int));
 
 	printf("Theoutputintegersretrievedfrombuffer:%d%d\n", output1, output2);
-
-	GameServer::getInstance()->Start();
 	GameServer::getInstance()->init();
+	GameServer::getInstance()->Start();
 	GameServer::getInstance()->WaitStop();
 }

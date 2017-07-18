@@ -1,4 +1,5 @@
 #include "FileUtil.h"
+#include <sys/timeb.h>
 
 FileUtil* FileUtil::m_instance = nullptr;
 
@@ -60,7 +61,14 @@ std::string FileUtil::getStringFromFile(const std::string& filename)
 
 bool FileUtil::writeLog(const std::string& str)
 {
-	std::string newStr = str + "\n";
+	char tmp[32] = { 0 };
+	timeb tb;
+	ftime(&tb);
+	tm * st = localtime(&tb.time);
+	sprintf(tmp, "%04d-%02d-%02d %02d:%02d:%02d.%03d ",
+		st->tm_year + 1900, st->tm_mon + 1, st->tm_mday, st->tm_hour, st->tm_min, st->tm_sec, tb.millitm);
+	std::string newStr(tmp);
+	newStr = newStr + str + "\n";
 	struct tm *p;
 	p = localtime(&m_logTime); /*变量t的值转换为实际日期时间的表示格式*/
 	char filename[256] = { 0 };

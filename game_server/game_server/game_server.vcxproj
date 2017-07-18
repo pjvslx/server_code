@@ -81,6 +81,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Classes\game_server\AsynGameTask.h" />
+    <ClInclude Include="..\..\Classes\game_server\AsynTaskManager.h" />
     <ClInclude Include="..\..\Classes\game_server\GameServer.h" />
     <ClInclude Include="..\..\Classes\game_server\MsgDispatcher.h" />
     <ClInclude Include="..\..\Classes\game_server\OpCode.h" />
@@ -131,6 +133,7 @@
     <ClInclude Include="..\..\utils\core\GException.h" />
     <ClInclude Include="..\..\utils\core\NetPacket.h" />
     <ClInclude Include="..\..\utils\core\PlatformMacros.h" />
+    <ClInclude Include="..\..\utils\core\Singleton.h" />
     <ClInclude Include="..\..\utils\core\TypeDef.h" />
     <ClInclude Include="..\..\utils\db\AsynHandle.h" />
     <ClInclude Include="..\..\utils\db\DBHandle.h" />
@@ -147,6 +150,8 @@
     <ClInclude Include="..\..\utils\json\writer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Classes\game_server\AsynGameTask.cpp" />
+    <ClCompile Include="..\..\Classes\game_server\AsynTaskManager.cpp" />
     <ClCompile Include="..\..\Classes\game_server\GameServer.cpp" />
     <ClCompile Include="..\..\Classes\game_server\MsgDispatcher.cpp" />
     <ClCompile Include="..\..\Classes\game_server\player\Player.cpp" />
