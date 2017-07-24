@@ -35,9 +35,18 @@ void AsynGameTask::delayExecute(int delayTime, mdk::MethodPointer method, void *
 	m_asynTaskId = ++m_sequenceId;
 }
 
+void AsynGameTask::excuteNoDelay(mdk::MethodPointer method, void *pObj, void *pParam)
+{
+	m_task.Accept(method, pObj, pParam);
+	delay_time = -1;
+	excuteTime = -1;
+	AsynTaskManager::instance()->addTask(this);
+	m_asynTaskId = ++m_sequenceId;
+}
+
 bool AsynGameTask::timeout()
 {
-	return time(nullptr) >= excuteTime;
+	return time(nullptr) >= excuteTime || excuteTime == -1;
 }
 
 void AsynGameTask::execute()

@@ -84,11 +84,14 @@
     <ClInclude Include="..\..\Classes\game_server\AsynGameTask.h" />
     <ClInclude Include="..\..\Classes\game_server\AsynTaskManager.h" />
     <ClInclude Include="..\..\Classes\game_server\GameServer.h" />
+    <ClInclude Include="..\..\Classes\game_server\mahjong\MahjongDef.h" />
     <ClInclude Include="..\..\Classes\game_server\MsgDispatcher.h" />
     <ClInclude Include="..\..\Classes\game_server\OpCode.h" />
     <ClInclude Include="..\..\Classes\game_server\player\Player.h" />
     <ClInclude Include="..\..\Classes\game_server\player\PlayerDef.h" />
     <ClInclude Include="..\..\Classes\game_server\player\PlayerManager.h" />
+    <ClInclude Include="..\..\Classes\game_server\prop\PropDef.h" />
+    <ClInclude Include="..\..\Classes\game_server\table\Table.h" />
     <ClInclude Include="..\..\Classes\game_server\test\TestDef.h" />
     <ClInclude Include="..\..\framework\include\frame\netserver\EpollFrame.h" />
     <ClInclude Include="..\..\framework\include\frame\netserver\EpollMonitor.h" />
@@ -156,6 +159,7 @@
     <ClCompile Include="..\..\Classes\game_server\MsgDispatcher.cpp" />
     <ClCompile Include="..\..\Classes\game_server\player\Player.cpp" />
     <ClCompile Include="..\..\Classes\game_server\player\PlayerManager.cpp" />
+    <ClCompile Include="..\..\Classes\game_server\table\Table.cpp" />
     <ClCompile Include="..\..\Classes\main.cpp" />
     <ClCompile Include="..\..\framework\source\frame\netserver\EpollFrame.cpp" />
     <ClCompile Include="..\..\framework\source\frame\netserver\EpollMonitor.cpp" />

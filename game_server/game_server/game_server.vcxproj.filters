@@ -37,6 +37,15 @@
     <Filter Include="utils\core">
       <UniqueIdentifier>{90785c54-b5e9-4104-b731-6156a875cedc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\game_server\mahjong">
+      <UniqueIdentifier>{79850c9a-a6b8-43e8-8dda-20ad865b4de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\game_server\table">
+      <UniqueIdentifier>{a4b141ab-e893-4c9a-a0ef-9d9ae978c3c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\game_server\prop">
+      <UniqueIdentifier>{1be29654-b4f2-49e9-9c0c-9a978b0a132d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\framework\include\mdk\atom.h">
@@ -240,6 +249,15 @@
     <ClInclude Include="..\..\utils\core\Singleton.h">
       <Filter>utils\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\table\Table.h">
+      <Filter>Classes\game_server\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\mahjong\MahjongDef.h">
+      <Filter>Classes\game_server\mahjong</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\game_server\prop\PropDef.h">
+      <Filter>Classes\game_server\prop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\framework\source\mdk\atom.cpp">
@@ -388,6 +406,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Classes\game_server\AsynTaskManager.cpp">
       <Filter>Classes\game_server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\game_server\table\Table.cpp">
+      <Filter>Classes\game_server\table</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

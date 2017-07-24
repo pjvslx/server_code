@@ -19,7 +19,7 @@ MsgDispatcher::MsgDispatcher()
 
 }
 
-void MsgDispatcher::addPacketObserver(const std::string& componentName, const std::function<void(unsigned int, void*)> &func, unsigned int opcode1, ...)
+void MsgDispatcher::addPacketObserver(const std::string& componentName, const std::function<void(int64, unsigned int, void*)> &func, unsigned int opcode1, ...)
 {
 	__addObserver(componentName, func, opcode1);
 
@@ -35,7 +35,7 @@ void MsgDispatcher::addPacketObserver(const std::string& componentName, const st
 	va_end(args);
 }
 
-void MsgDispatcher::__addObserver(const std::string& componentName, const std::function<void(unsigned int, void*)> &func, unsigned int opcode)
+void MsgDispatcher::__addObserver(const std::string& componentName, const std::function<void(int64, unsigned int, void*)> &func, unsigned int opcode)
 {
 	m_mapComponentOpcodes[componentName].push_back(opcode);
 	m_mapOpcodeFunc[opcode] = func;
@@ -51,12 +51,12 @@ void MsgDispatcher::removePacketObserver(const std::string&componentName)
 	m_mapComponentOpcodes.erase(componentName);
 }
 
-void MsgDispatcher::handlePacket(NetPacket* packet)
+void MsgDispatcher::handlePacket(int64 connectId, NetPacket* packet)
 {
 	uint16 opcode = packet->getOpcode();
 	if (m_mapOpcodeFunc.find(opcode) != m_mapOpcodeFunc.end())
 	{
-		m_mapOpcodeFunc[opcode](opcode, packet);
+		m_mapOpcodeFunc[opcode](connectId, opcode, packet);
 	}
 
 	delete packet;

@@ -1,9 +1,60 @@
 #pragma once
-
+#include <map>
 #include "core/TypeDef.h"
 #include <string>
 #include "core/NetPacket.h"
 #include "core/FileUtil.h"
+#include "prop/PropDef.h"
+
+typedef int32 stPropId;
+typedef std::map<stPropId, uint32> stPlayerPropMap;
+
+struct stPlayerPropTable //玩家道具列表
+{
+	uint32 AccountID;   //账号id
+	stPlayerPropMap m_propMap;
+
+	stPlayerPropTable() : AccountID(0) {
+
+	}
+
+	uint32 getPropCount(int ID){
+		stPlayerPropMap::iterator it = m_propMap.find(ID);
+		if (it == m_propMap.end())
+		{
+			return 0;
+		}
+		return it->second;
+	}
+
+
+	uint32 getPropValue(stPropId propKey) const
+	{
+		stPlayerPropMap::const_iterator it = m_propMap.find(propKey);
+		if (it != m_propMap.end()) {
+			return it->second;
+		}
+		else {
+			return 0;
+		}
+	}
+
+	void setPropValue(stPropId propKey, uint32 value)
+	{
+		m_propMap[propKey] = value;
+	}
+
+	void encode(NetPacket& packet)
+	{
+		packet.writeUint32(AccountID);
+		packet.writeUint32(m_propMap.size());
+		for (stPlayerPropMap::iterator it = m_propMap.begin(); it != m_propMap.end(); it++)
+		{
+			packet.writeInt(it->first);
+			packet.writeUint32(it->second);
+		}
+	}
+};
 
 struct stPlayerCharacterInfo
 {
@@ -14,6 +65,12 @@ struct stPlayerCharacterInfo
 	{
 		AccountID = packet.readUint32();
 		GoldCoins = packet.readUint32();
+	}
+
+	void encode(NetPacket& packet)
+	{
+		packet.writeUint32(AccountID);
+		packet.writeUint32(GoldCoins);
 	}
 };
 
@@ -45,16 +102,34 @@ struct stPlayerAccountInfo
 		cr_date = packet.readUint32();
 		avatar_url = packet.readString();
 	}
+
+	void encode(NetPacket& packet)
+	{
+		packet.writeUint32(accountID);
+		packet.writeString(account);
+		packet.writeString(password);
+		packet.writeString(nick);
+		packet.writeString(signature);
+		packet.writeUint32(icon);
+		packet.writeUint32(sex);
+		packet.writeUint32(birthday);
+		packet.writeString(thirdlogin);
+		packet.writeUint32(cr_date);
+		packet.writeString(avatar_url);
+	}
 };
 
 struct stPlayerAccountCharacterInfo
 {
 	stPlayerAccountInfo account;
 	stPlayerCharacterInfo character;
-	void decode(NetPacket& packet)
+	stPlayerPropTable propTable;
+
+	void encode(NetPacket& packet)
 	{
-		account.decode(packet);
-		character.decode(packet);
+		account.encode(packet);
+		character.encode(packet);
+		propTable.encode(packet);
 	}
 };
 

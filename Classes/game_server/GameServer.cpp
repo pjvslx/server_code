@@ -12,6 +12,7 @@
 #include "MsgDispatcher.h"
 #include "player/PlayerManager.h"
 #include "AsynTaskManager.h"
+#include "OpCode.h"
 
 using namespace std;
 
@@ -118,9 +119,12 @@ void GameServer::OnConnect(mdk::NetHost &host)
 	printf("=======GameServer::OnConnect=========\n");
 	FileUtil::getInstance()->writeLog("=======GameServer::OnConnect=========");
 
-	AsynGameTask *task = new AsynGameTask();
-	int64* p = new int64(host.ID());
-	task->delayExecute(5, mdk::Executor::Bind(&GameServer::closeConnection), this, (void*)p);
+// 	AsynGameTask *task = new AsynGameTask();
+// 	int64* p = new int64(host.ID());
+// 	task->delayExecute(5, mdk::Executor::Bind(&GameServer::closeConnection), this, (void*)p);
+	NetPacket pack(SMSG_HELLO_CLIENT);
+	pack.writeInt(time(nullptr));
+	PlayerManager::getInstance()->sendPacket(host.ID(),&pack);
 }
 
 void GameServer::OnConnectFailed(char *ip, int port, int reConnectTime)
@@ -131,6 +135,9 @@ void GameServer::OnConnectFailed(char *ip, int port, int reConnectTime)
 void GameServer::OnCloseConnect(mdk::NetHost &host)
 {
 	printf("=======GameServer::OnCloseConnect=========\n");
+	AsynGameTask *task = new AsynGameTask();
+	int64* p = new int64(host.ID());
+	task->excuteNoDelay(mdk::Executor::Bind(&PlayerManager::removePlayerByConnection), PlayerManager::getInstance(), (void*)p);
 }
 
 void GameServer::OnMsg(mdk::NetHost &host)
@@ -203,7 +210,7 @@ void GameServer::__handleBufferQueue()
 			assert(packet);
 			if (packet)
 			{
-				MsgDispatcher::getInstance()->handlePacket(packet);
+				MsgDispatcher::getInstance()->handlePacket(packet->getConnectId(),packet);
 			}
 		}
 	}

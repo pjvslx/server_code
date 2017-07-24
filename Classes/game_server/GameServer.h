@@ -21,12 +21,11 @@ public:
 	void OnConnectFailed(char *ip, int port, int reConnectTime);
 	void OnCloseConnect(mdk::NetHost &host);
 	void OnMsg(mdk::NetHost &host);
-
-	//主动执行
-	void* closeConnection(void* obj, void* p);
-
 	void __mainThreadLoop();
 	void __handleBufferQueue();
+protected:
+	//主动执行
+	void* closeConnection(void* obj, void* p);
 private:
 	static GameServer* m_instance;
 	DoubleBufferQueue<NetPacket*, NetPacket::free> m_MsgQueue;
