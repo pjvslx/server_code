@@ -61,6 +61,13 @@ struct stPlayerCharacterInfo
 	uint32 AccountID;       //账号id
 	uint32 GoldCoins;       //金币
 
+	stPlayerCharacterInfo()
+		: AccountID(0)
+		, GoldCoins(0)
+	{
+
+	}
+
 	void decode(NetPacket& packet)
 	{
 		AccountID = packet.readUint32();
@@ -87,6 +94,16 @@ struct stPlayerAccountInfo
 	std::string thirdlogin; // 第三方平台绑定状态
 	uint32 cr_date;         // 账号创建时间
 	std::string avatar_url; // 头像
+
+	stPlayerAccountInfo()
+		: accountID(0)
+		, icon(0)
+		, sex(0)
+		, birthday(0)
+		, cr_date(0)
+	{
+
+	}
 
 	void decode(NetPacket& packet)
 	{

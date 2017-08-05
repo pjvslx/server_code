@@ -258,6 +258,9 @@
     <ClInclude Include="..\..\Classes\game_server\prop\PropDef.h">
       <Filter>Classes\game_server\prop</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\utils\db\MySQLInterface.h">
+      <Filter>utils\db</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\framework\source\mdk\atom.cpp">
@@ -409,6 +412,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Classes\game_server\table\Table.cpp">
       <Filter>Classes\game_server\table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\db\MySQLInterface.cpp">
+      <Filter>utils\db</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
